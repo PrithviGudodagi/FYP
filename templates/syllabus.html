@@ -8,33 +8,59 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
-    <div class="main">
-        <div class="container">
-            <div class="row">   
-                <div class="col-md-6">
-                   
-                        <h2 class="text-center mb-4">syllabus form</h2>
-                        <form action="{{ url_for('syllabusdata')}}" method="post">
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Example textarea</label>
-                                <textarea type="text" name="syllabustext" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                              </div>
-                              <select name="option" class="form-control">
-                                <option>Web Development</option>
-                                <option>python</option>
-                              </select>
-                            <!-- <button type="button" class="btn btn-info btn-outline" id="login" style="margin-left: 150px; background-color: rgb(39, 70, 117);">Login</button> -->
-                            <button type="submit" id="login" class="btn btn-primary btn-lg btn-block">submit</button>
-                        </form>
-                    
+    <div class="m-4">
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="nav-item">
+                <a href="#home" class="nav-link active" data-bs-toggle="tab">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#profile" class="nav-link" data-bs-toggle="tab">Profile</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="home">
+                <h4 class="mt-2">Syllabus Form</h4>
+                <div class="main">
+                    <div class="container">
+                        <div class="row">   
+                            <div class="col-md-6">
+                                <form action="{{ url_for('syllabusdata')}}" method="post">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                                        <textarea type="text" name="syllabustext" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                      </div>
+                                      <select name="option" class="form-control">
+                                        <option>Web Development</option>
+                                        <option>python</option>
+                                      </select>
+                                    <!-- <button type="button" class="btn btn-info btn-outline" id="login" style="margin-left: 150px; background-color: rgb(39, 70, 117);">Login</button> -->
+                                    <button type="submit" id="login" class="btn btn-primary btn-lg btn-block">submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+             </div>
 
+            <div class="tab-pane fade" id="profile">
+                <h4 class="mt-2">Syllabus file upload</h4>
+                <form  method="post">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Upload file</label>
+                        <input type="file" name="syllabusfile" enctype=multipart/form-data>
+                    </div>
+                    <button type="submit" id="login" class="btn btn-primary btn-lg btn-block">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-
+   
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/static/js/login.js"></script>

@@ -240,9 +240,15 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">{{data['email']}}</span>
+                            
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                          {% for item in data %}
+                            <p class="dropdown-item"> Logged in as {{item['name']}} </p>
+                          {% endfor %}
                             <a href="/logout" class="dropdown-item">Log Out</a>
+                            
+                            
                         
                     </div>
                 </div>
