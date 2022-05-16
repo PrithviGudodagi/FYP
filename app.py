@@ -76,9 +76,9 @@ def syllabusdata():
 
 @app.route('/addedsyllabus')
 def addedsyllabus():
-    for data in db.syllabusdata.find({'email': session['email']}):
-        print(data)
-        return render_template('addedsyllabus.html', data = data)
+    data  = db.syllabusdata.find({'email': session['email']})
+    print(data)
+    return render_template('addedsyllabus.html', data = data)
 
 
 if __name__ == '__main__':
