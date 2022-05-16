@@ -57,7 +57,8 @@ def logout():
 @app.route('/dashboard')
 def dashboard():
     if 'email' in session:
-        return render_template('dashboard.html')
+        username  = db.orgdata.find({'email': session['email']})
+        return render_template('dashboard.html', data = username)
     else:
         return redirect(url_for('index'))
 
@@ -77,7 +78,6 @@ def syllabusdata():
 @app.route('/addedsyllabus')
 def addedsyllabus():
     data  = db.syllabusdata.find({'email': session['email']})
-    print(data)
     return render_template('addedsyllabus.html', data = data)
 
 
