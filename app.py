@@ -103,7 +103,7 @@ def syllabusfile(header=None):
                 db.syllabusdata.insert_one({'email' : session['email'] , 'syllabus' : filecontent, 'Subject' : request.form['option'] })
                 return redirect(url_for('dashboard'))
         elif request.form['filetype'] == "Pdf":
-            return " Available in future"
+            return " Available in future" 
 
    
 if __name__ == '__main__':
