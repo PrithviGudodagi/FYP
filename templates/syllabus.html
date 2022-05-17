@@ -179,13 +179,32 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Upload Syllabus</h6>
-                            <form method="post">
+                            <form method="post" action="{{ url_for('syllabusfile')}}" enctype="multipart/form-data">
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" name="filetype" id="floatingSelect"
+                                        aria-label="Floating label select example">
+                                        <option selected>Choose File type</option>
+                                        <option value="Text">Text</option>
+                                        <option value="Pdf">PDF</option>
+                                    </select>
+                                    <label for="floatingSelect">Select Subject</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" name="option" id="floatingSelect"
+                                        aria-label="Floating label select example">
+                                        <option selected>Choose from different Syllabus</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="Python">Python</option>
+                                    </select>
+                                    <label for="floatingSelect">Select Subject</label>
+                                </div>
                                 <div class="bg-light rounded h-100 p-4">
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Choose from file</label>
                                         <input class="form-control" type="file" name="syllabusfile" enctype=multipart/form-data id="formFile">
                                     </div>
                                 </div>
+                                
                                 <button type="submit" id="login" class="btn btn-primary">Upload Syllabus</button>
                             </form>
                         </div>

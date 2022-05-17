@@ -1,0 +1,22 @@
+Unit – I 08 Hours
+Introduction: The Internet Versus the Web, Serving Up Your Information, Web Page Addresses (URLs),
+The Anatomy of a Web Page, A Dizzying Multitude of Devices, Sticking with the Standards, Progressive
+Enhancement, Responsive Web Design, Accessibility, Site Performance, Steps to becoming a web
+developer, skills and tools, Dos and Don’ts, career trends
+Self learning topics: Web history, web standards
+Unit – II 08 Hours
+HTML5: Basic Elements, drag and drop, File upload, Dropdown menu, audio player, local storage,
+graphics and animation, Geolocation and form validation, CSS3: Basic properties, Inheritance, Multiple
+classes, Box model, Effects.
+Self learning topics: HTML5 code validation
+Unit – III 08 Hours
+Basics of JavaScript: Dialog boxes, Conditional statements, loops, arrays, objects, events, Jquery:
+Add/Remove class, UI Datepicker, File upload, Autocomplete
+Self learning topics: JavaScript Code Validation, JQuery basics
+Unit – IV 08 Hours
+Basics of AngularJS: Form validation, Routing, Controller, Table, Data binding
+Self learning topics: AgularJS API, W3.CSS, Includes
+Unit – V 08 Hours
+Basics of Bootstrap: Grid, Navbar, Table, Dropdown, Form, Layout, Tooltip, Panel, Pop-over, Tabs,
+Modals
+Self learning topics: Concepts of responsive design, BS4 basic template

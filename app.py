@@ -1,6 +1,10 @@
-from flask import Flask, flash, render_template, url_for, request, session, redirect
-from pymongo import MongoClient
 import bcrypt
+from flask import (Flask, flash, redirect, render_template, request, session, url_for)
+from pymongo import MongoClient
+from werkzeug.datastructures import FileStorage
+from werkzeug.utils import secure_filename
+import PyPDF2
+
 
 app  = Flask(__name__)
 app.secret_key = "super secret key"
@@ -83,7 +87,25 @@ def addedsyllabus():
     syllabusdb = db.syllabusdata.find({'email': session['email']})
     return render_template('addedsyllabus.html', sdata = syllabusdb, data = username)
 
+@app.route('/syllabusfile', methods = ['GET', 'POST'])
+def syllabusfile(header=None):
+    if request.method == 'POST': 
+        file = request.files['syllabusfile']
+        filename = secure_filename(file.filename)
+        
 
+        print(request.form['filetype'])
+        if request.form['filetype'] == "Text":
+            
+            with open(filename) as f:
+                filecontent = f.read()
+                print(filecontent)
+                db.syllabusdata.insert_one({'email' : session['email'] , 'syllabus' : filecontent, 'Subject' : request.form['option'] })
+                return redirect(url_for('dashboard'))
+        elif request.form['filetype'] == "Pdf":
+            return " Available in future"
+
+   
 if __name__ == '__main__':
     app.debug = True
     app.run()
