@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, session, redirect
+from flask import Flask, flash, render_template, url_for, request, session, redirect
 from pymongo import MongoClient
 import bcrypt
 
@@ -58,7 +58,8 @@ def logout():
 def dashboard():
     if 'email' in session:
         username  = db.orgdata.find({'email': session['email']})
-        return render_template('dashboard.html', data = username)
+        syllabusdb = db.syllabusdata.find({'email': session['email']})
+        return render_template('dashboard.html', sdata = syllabusdb, data = username)
     else:
         return redirect(url_for('index'))
 
@@ -72,13 +73,15 @@ def syllabus():
 
 @app.route('/syllabusdata', methods =["GET", "POST"])
 def syllabusdata():
-    db.syllabusdata.insert_one({'email' : session['email'],'syllabus' : request.form['syllabustext'], 'option' : request.form['option']})
-    return 'syllbus uploaded successfully'
+    db.syllabusdata.insert_one({'email' : session['email'],'syllabus' : request.form['syllabustext'], 'Subject' : request.form['option']})
+    flash('syllabus uploaded successfully')
+    return redirect(url_for('syllabus'))
 
 @app.route('/addedsyllabus')
 def addedsyllabus():
-    data  = db.syllabusdata.find({'email': session['email']})
-    return render_template('addedsyllabus.html', data = data)
+    username  = db.orgdata.find({'email': session['email']})
+    syllabusdb = db.syllabusdata.find({'email': session['email']})
+    return render_template('addedsyllabus.html', sdata = syllabusdb, data = username)
 
 
 if __name__ == '__main__':
